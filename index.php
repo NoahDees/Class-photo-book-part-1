@@ -31,7 +31,7 @@
         <!-- Team Thumb-->
                 <?='<div class="advisor_thumb"><a href="Noah_Dees.php"><img src="picture.jpg" width="315" height="315" alt=""></a>
                     <!-- Social Info-->
-                    <div class="social-info"><a href="FIRSTNAME_LASTNAME.php"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
+                    <div class="social-info"><a href="Noah_Dees.php"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
                 </div>'?>
         <!-- Team Details-->
                 <div class="single_advisor_details_info">

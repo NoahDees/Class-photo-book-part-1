@@ -29,7 +29,7 @@
             <div class="col-12 col-sm-6 col-lg-3">
                 <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
         <!-- Team Thumb-->
-                <?='<div class="advisor_thumb"><a href="FIRSTNAME_LASTNAME.php"><img src="picture.jpg" width="315" height="315" alt=""></a>
+                <?='<div class="advisor_thumb"><a href="Noah_Dees.php"><img src="picture.jpg" width="315" height="315" alt=""></a>
                     <!-- Social Info-->
                     <div class="social-info"><a href="FIRSTNAME_LASTNAME.php"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
                 </div>'?>

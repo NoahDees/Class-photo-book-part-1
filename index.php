@@ -1,5 +1,19 @@
 <!doctype html>
 <html lang="en">
+    <?php
+        include_once 'data.php';
+        include_once 'functions.php';
+        function displaycard($birthday){
+            $age = calcage($birthday);
+            $fullage = agespec($birthday);
+            echo '<div class="card" style="width: 18rem,display: flex;">';
+                echo '<div class="card-body">';
+                echo '<h9 class="card-title">Age</h9>';
+                echo '<p class="card-text">'.$age.' years old <br>Time since birth '.$fullage.'</p>';
+            echo '</div>';
+        }
+    ?>
+
     <head>
         <!-- https://www.bootdey.com/snippets/view/single-advisor-profile#html -->
         <meta charset="utf-8">
@@ -26,67 +40,43 @@
         </div>
         <div class="row">
         <!-- Single Advisor-->
-            <div class="col-12 col-sm-6 col-lg-3">
+            <?php
+                for($num=0;$num,$num<count($students);$num++){
+                    if ($students[$num]['year']=='freshman'):
+                        $var='*';
+                    endif;
+                    if ($students[$num]['year']=='sophomore'):
+                        $var='**';
+                    endif;
+                    if ($students[$num]['year']=='junior'):
+                        $var='***';
+                    endif;
+                    if ($students[$num]['year']=='senior'):
+                        $var='****';
+                    endif;
+            ?>
+            <div class="col-12 col-sm-6 col-lg-4">
                 <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.2s" style="visibility: visible; animation-delay: 0.2s; animation-name: fadeInUp;">
-        <!-- Team Thumb-->
-                <?='<div class="advisor_thumb"><a href="Noah_Dees.php"><img src="picture.jpg" width="315" height="315" alt=""></a>
-                    <!-- Social Info-->
-                    <div class="social-info"><a href="Noah_Dees.php"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
-                </div>'?>
-        <!-- Team Details-->
-                <div class="single_advisor_details_info">
-                    <h6><?= "Noah Dees"; ?></h6>
-                    <p class="designation"><?= "PHP Designer"; ?></p>
-                </div>
-            </div>
-        </div>
-        <!-- Single Advisor-->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.3s" style="visibility: visible; animation-delay: 0.3s; animation-name: fadeInUp;">
-                <!-- Team Thumb-->
-                <?='<div class="advisor_thumb"><a href="detail.html"><img src="https://bootdey.com/img/Content/avatar/avatar7.png" alt=""></a>
-                    <!-- Social Info-->
-                    <div class="social-info"><a href="detail.html"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
-                </div>'?>
-                <!-- Team Details-->
-                <div class="single_advisor_details_info">
-                    <h6><?= "Nazrul Islam"; ?></h6>
-                    <p class="designation"><?= "UI Designer"; ?></p>
-                </div>
-            </div>
-        </div>
-        <!-- Single Advisor-->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.4s" style="visibility: visible; animation-delay: 0.4s; animation-name: fadeInUp;">
-                <!-- Team Thumb-->
-                <?='<div class="advisor_thumb"><a href="detail.html"><img src="https://bootdey.com/img/Content/avatar/avatar6.png" alt=""></a>
-                    <!-- Social Info-->
-                    <div class="social-info"><a href="detail.html"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
-                </div>'?>
-                <!-- Team Details-->
-                <div class="single_advisor_details_info">
-                    <h6><?= "Riyadh Khan"; ?></h6>
-                    <p class="designation"><?= "Developer"; ?></p>
-                </div>
-            </div>
-        </div>
-        <!-- Single Advisor-->
-        <div class="col-12 col-sm-6 col-lg-3">
-            <div class="single_advisor_profile wow fadeInUp" data-wow-delay="0.5s" style="visibility: visible; animation-delay: 0.5s; animation-name: fadeInUp;">
-                <!-- Team Thumb-->
-                    <?='<div class="advisor_thumb"><a href="detail.html"><img src="https://bootdey.com/img/Content/avatar/avatar2.png" alt=""></a>
+                    <!-- Team Thumb-->
+                    <div class="advisor_thumb"><a href="details.php?index=<?= $num?>"><img src="<?php echo $students[$num]['picturename'] ?>" width="315" height="315" alt=""></a>
                         <!-- Social Info-->
-                        <div class="social-info"><a href="detail.html"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a></div>
-                        </div>'?>
-                        <!-- Team Details-->
-                        <div class="single_advisor_details_info">
-                            <h6><?= "Niloy Islam"; ?></h6>
-                            <p class="designation"><?= "Marketing Manager"; ?></p>
+                        <div class="social-info"><p><?php echo $var ?></p>
+                            <a href="detail.html"><i class="fa fa-facebook"></i></a><a href="detail.html"><i class="fa fa-twitter"></i></a><a href="detail.html"><i class="fa fa-linkedin"></i></a>
                         </div>
+                    </div>
+                    <div class="single_advisor_details_info">
+                        <?php
+                            echo '<h6>'.$students[$num]['name'].'</h6>';
+                            echo '<p class="designation">'.$students[$num]['designation'].'</p>';
+                            displaycard($students[$num]['birthday']);
+                        ?>
                     </div>
                 </div>
             </div>
         </div>
+        <?php
+            }
+        ?>
         <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ho+j7jyWK8fNQe+A12Hb8AhRq26LrZ/JpcUGGOn+Y7RsweNrtN/tE3MoK7ZeZDyx" crossorigin="anonymous"></script>
     </body>
